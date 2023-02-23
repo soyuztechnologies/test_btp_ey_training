@@ -1,0 +1,7 @@
+GET http://localhost:4004/CatalogService/
+
+###Read Service Metadata
+GET http://localhost:4004/CatalogService/$metadata
+
+###Read top 3 employees
+GET http://localhost:4004/CatalogService/EmployeeSet?top=3

@@ -33,18 +33,13 @@ context master {
         LONGITUDE: Decimal;
         businesspartner: Association to one businesspartner on businesspartner.ADDRESS_GUID = $self;
     }
-    //entity prodtext {
-    //    key NODE_KEY: Guid;
-    //    PARENT_KEY: Guid;
-    //    LANGUAGE:String(2);	
-    //    TEXT: String(256);        
-    //}
+
     entity product {
         key NODE_KEY: Guid;
         PRODUCT_ID: String(28);
         TYPE_CODE: String(2);
         CATEGORY: String(32);
-        DESCRIPTION: localized String(255);
+        DESCRIPTION: localized String(255);
         SUPPLIER_GUID: Association to master.businesspartner;
         TAX_TARIF_CODE: Integer;
         MEASURE_UNIT: String(2);
