@@ -5,3 +5,7 @@ GET http://localhost:4004/CatalogService/$metadata
 
 ###Read top 3 employees
 GET http://localhost:4004/CatalogService/EmployeeSet?top=3
+
+
+###Read top 3 employees using V2
+GET http://localhost:4004/v2/CatalogService/EmployeeSet?top=3

@@ -1,4 +1,4 @@
-using { anubhav.db.master, anubhav.db.transaction } from '../db/datamodel';
+using { anubhav.db.master, anubhav.db.transaction, anubhav.db.cdsviews } from '../db/datamodel';
 
 
 service CatalogService@(path:'/CatalogService') {
@@ -24,5 +24,11 @@ service CatalogService@(path:'/CatalogService') {
         PARENT_KEY: redirected to POs,
         PRODUCT_GUID: redirected to ProductSet
     }
+
+    entity POWorklist as projection on cdsviews.POWorklist;
+    entity ProductOrders as projection on cdsviews.ProductViewSub;
+    entity ProductAggregation as projection on cdsviews.CProductValuesView excluding{
+        ProductId
+    };
 
 }
