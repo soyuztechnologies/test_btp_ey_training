@@ -46,9 +46,6 @@
     }
   },
   "cds": {
-    "build": {
-      "target": "."
-    },
     "requires": {
       "db": {
         "kind": "hana-cloud"
