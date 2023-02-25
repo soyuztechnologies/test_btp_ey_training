@@ -1,10 +1,11 @@
 using { anubhav.db.master, anubhav.db.transaction, anubhav.db.cdsviews, anubhav.db } from '../db/datamodel';
+using { CV_PO_ANA } from '../db/exposure';
 
 
 service CatalogService@(path:'/CatalogService') {
 
     @readonly
-    entity CV_PO_ANA as projection on db.CV_PO_ANA;
+    entity Cv_Purchase as projection on CV_PO_ANA;
 
     entity EmployeeSet as projection on master.employees;
 
