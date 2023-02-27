@@ -4,6 +4,9 @@ using { CV_PO_ANA } from '../db/exposure';
 
 service CatalogService@(path:'/CatalogService') {
 
+
+    function sleep() returns Boolean;
+    
     @readonly
     entity Cv_Purchase as projection on CV_PO_ANA;
 
