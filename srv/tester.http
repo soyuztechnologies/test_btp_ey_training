@@ -94,3 +94,17 @@ Content-Type: application/json;IEEE754Compatible=true
 
 ###DELETE The data using Custom Handler
 DELETE http://localhost:4004/mysrvdemo/DeleteEmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C1978969
+
+
+###Calling action for the Entity
+GET http://localhost:4004/CatalogService/POs?$format=json&$select=ID,GROSS_AMOUNT&$top=2
+
+###Calling action for the Entity
+
+POST http://localhost:4004/CatalogService/POs/02BD2137-0890-1EEA-A6C2-BB55C1978999/CatalogService.boost
+Content-Type: application/json
+
+{}
+
+###Read Largest Order in system
+GET http://localhost:4004/CatalogService/POs/02BD2137-0890-1EEA-A6C2-BB55C1978999/CatalogService.largestOrder()
