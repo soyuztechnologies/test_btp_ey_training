@@ -27,13 +27,25 @@ annotate service.POs with @(
                 Value : PARTNER_GUID.ADDRESS_GUID.COUNTRY,
             },
             {
+                $Type : 'UI.DataFieldForAction',
+                Label : 'Boost',
+                Action: 'CatalogService.boost',
+                Inline: true
+            },
+            {
                 $Type : 'UI.DataField',
                 Value : TAX_AMOUNT,
             },
             {
                 $Type : 'UI.DataField',
                 Value : LIFECYCLE_STATUS,
+            },{
+                $Type : 'UI.DataField',
+                Value : LIFECYCLE_STATUS,
+                Criticality : MyCriticality,
+                CriticalityRepresentation : #WithIcon,
             },
+
         ],
         HeaderInfo  : {
             $Type : 'UI.HeaderInfoType',

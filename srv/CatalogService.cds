@@ -19,11 +19,20 @@ service CatalogService@(path:'/CatalogService') {
 
     entity BPSet as projection on master.businesspartner;
 
-    entity POs @(
-        title: '{i18n>poHeader}'
-    ) as projection on transaction.purchaseorder{
+    entity POs @( title: '{i18n>poHeader}') 
+        as projection on transaction.purchaseorder{
         *,
-        Items: redirected to POItems
+        Items: redirected to POItems,
+        case LIFECYCLE_STATUS
+            when 'N' then 'New'
+            when 'B' then 'Blocked'
+            when 'D' then 'Delivered'
+            end as LIFECYCLE_STATUS: String(30),
+        case LIFECYCLE_STATUS
+            when 'N' then 2
+            when 'B' then 1
+            when 'D' then 3
+            end as MyCriticality: Integer
     }actions{
         function largestOrder() returns array of POs;
         action boost();

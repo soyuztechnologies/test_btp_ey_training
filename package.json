@@ -54,7 +54,10 @@
     },
     "requires": {
       "db": {
-        "kind": "hana-cloud"
+        "kind": "sqlite",
+        "credentials": {
+          "database": "anubhav.db"
+        }
       }
     }
   }
