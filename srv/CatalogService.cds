@@ -36,7 +36,9 @@ service CatalogService@(path:'/CatalogService') {
     }actions{
         function largestOrder() returns array of POs;
         action boost();
-    }
+    };
+
+    annotate POs with @odata.draft.enabled;
 
     entity POItems @( title : '{i18n>poItems}' )
     as projection on transaction.poitems{
