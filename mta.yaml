@@ -31,7 +31,7 @@ modules:
       buildpack: nodejs_buildpack
   - name: mycap-db-deployer
     type: hdb
-    path: db
+    path: gen/db
     requires:
       - name: mycap-db
         properties:
