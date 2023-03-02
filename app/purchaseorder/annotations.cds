@@ -51,6 +51,15 @@ annotate service.POs with @(
             $Type : 'UI.HeaderInfoType',
             TypeName : 'Purchase Order',
             TypeNamePlural : 'Purchase Orders',
+            Title: {
+                $Type : 'UI.DataField',
+                Value : PO_ID,
+            },
+            Description:{
+                $Type : 'UI.DataField',
+                Value : PARTNER_GUID.COMPANY_NAME,
+            },
+            ImageUrl : 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Ernst_%26_Young_logo.svg/1200px-Ernst_%26_Young_logo.svg.png',
         },
     }
 
