@@ -12,11 +12,15 @@ service CatalogService@(path:'/CatalogService')
     entity Cv_Purchase as projection on CV_PO_ANA;
 
     //@Capabilities.Insertable: false
-    entity EmployeeSet @(restrict:[
+    entity EmployeeSet@(restrict:[
         {
             grant: ['READ'],
             to: 'Viewer',
             where: 'bankName = $user.BankName'
+        },
+        {
+            grant: ['WRITE'],
+            to: 'Admin'
         }
     ]) as projection on master.employees;
 
