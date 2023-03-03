@@ -2,7 +2,8 @@ using { anubhav.db.master, anubhav.db.transaction, anubhav.db.cdsviews, anubhav.
 using { CV_PO_ANA } from '../db/exposure';
 
 
-service CatalogService@(path:'/CatalogService') {
+service CatalogService@(path:'/CatalogService') 
+                     @(requires: 'authenticated-user'){
 
 
     function sleep() returns Boolean;
@@ -11,7 +12,13 @@ service CatalogService@(path:'/CatalogService') {
     entity Cv_Purchase as projection on CV_PO_ANA;
 
     //@Capabilities.Insertable: false
-    entity EmployeeSet as projection on master.employees;
+    entity EmployeeSet @(restrict:[
+        {
+            grant: ['READ'],
+            to: 'Viewer',
+            where: 'bankName = $user.BankName'
+        }
+    ]) as projection on master.employees;
 
     entity AddressSet as projection on master.address;
 
